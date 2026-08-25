@@ -1,0 +1,117 @@
+/* Reset basique pour un affichage propre */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f7fa;
+    position: relative;
+    overflow: hidden; /* Empêche de scroller si c'est juste une page d'accueil */
+}
+
+/* --- Les taches floues en arrière-plan --- */
+.blob {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+}
+
+.blob-1 {
+    background: #d4e4ff; /* Bleu très doux */
+    top: -10%;
+    left: 20%;
+}
+
+.blob-2 {
+    background: #f3d5ff; /* Violet très doux */
+    bottom: -10%;
+    right: 20%;
+}
+
+/* --- Organisation centrale --- */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 1;
+}
+
+/* --- Effet Glassmorphism réutilisable --- */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* Petite icône en haut */
+.icon-glass {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+    letter-spacing: 0.5px;
+}
+
+/* Le gros conteneur "7seven" (la pilule centrale) */
+.main-pill {
+    padding: 1.5rem 5rem;
+    border-radius: 100px; /* Donne la forme de pilule allongée */
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(16px);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05), inset 0 0 10px rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+.main-pill h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    letter-spacing: -1.5px;
+}
+
+/* Le bouton en bas */
+.btn-glass {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px); /* Petit effet de soulèvement au survol */
+    color: #000;
+}
