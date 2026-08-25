@@ -1,4 +1,4 @@
-/* Reset basique */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,24 +6,33 @@
     font-family: 'Inter', sans-serif;
 }
 
+/* Enhanced Animated Background */
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f0f2f5; 
+    background: linear-gradient(-45deg, #f0f2f5, #e6e9f0, #f8f9fa, #eef1f5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     position: relative;
     overflow-x: hidden;
     color: #1a1a2e;
 }
 
-/* Page d'accueil : pas de scroll */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Home Page : no scroll */
 body:not(.learn-more-body) {
     overflow: hidden;
     justify-content: center;
 }
 
-/* Page Learn More : scroll autorisé */
+/* Learn More Page : scroll allowed */
 .learn-more-body {
     align-items: center;
     overflow-y: auto;
@@ -33,12 +42,12 @@ body:not(.learn-more-body) {
     padding: 3rem 2rem 5rem 2rem;
 }
 
-/* --- Barre Ticker --- */
+/* --- Ticker Bar --- */
 .ticker-wrap {
     width: 100%;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     position: sticky;
@@ -50,7 +59,7 @@ body:not(.learn-more-body) {
 
 .ticker {
     display: flex;
-    width: 200%; /* Important pour que l'animation boucle sans saut */
+    width: 200%;
     animation: ticker 15s linear infinite;
 }
 
@@ -69,13 +78,13 @@ body:not(.learn-more-body) {
     100% { transform: translateX(-50%); }
 }
 
-/* --- Taches floues (Blobs) --- */
+/* --- Blurred Background Blobs --- */
 .blob {
     position: absolute;
     border-radius: 50%;
     filter: blur(100px);
     z-index: -1;
-    opacity: 0.8;
+    opacity: 0.7;
     animation: floatBlob 20s infinite ease-in-out alternate;
 }
 
@@ -88,7 +97,7 @@ body:not(.learn-more-body) {
     100% { transform: translate(80px, 80px) scale(1.15) rotate(15deg); }
 }
 
-/* --- Particules (Accueil) --- */
+/* --- Ambient Particles --- */
 .particles {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -113,7 +122,7 @@ body:not(.learn-more-body) {
     100% { transform: translateY(-100vh) scale(0); opacity: 0; }
 }
 
-/* --- Organisation --- */
+/* --- Main Layout --- */
 .container {
     display: flex;
     flex-direction: column;
@@ -124,16 +133,17 @@ body:not(.learn-more-body) {
     max-width: 1200px;
 }
 
-/* --- Effet Glassmorphism --- */
+/* --- Premium Glassmorphism --- */
 .glass-effect, .icon-glass, .main-pill, .btn-glass, .glass-card, .btn-back {
     background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.9); /* Gives a premium lighting edge */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 }
 
-/* --- Animations Accueil --- */
+/* --- Home Animations --- */
 .pulse-anim { animation: pulse 3s infinite ease-in-out; }
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
@@ -152,8 +162,8 @@ body:not(.learn-more-body) {
 }
 
 .subtitle {
-    font-size: 1.2rem; font-weight: 500; color: #666;
-    letter-spacing: 2px; text-transform: uppercase;
+    font-size: 1.1rem; font-weight: 600; color: #777;
+    letter-spacing: 3px; text-transform: uppercase;
 }
 
 .main-pill {
@@ -184,7 +194,7 @@ body:not(.learn-more-body) {
     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.5);
 }
 
-/* --- Page Learn More --- */
+/* --- Learn More Page --- */
 .btn-back {
     align-self: flex-start; padding: 0.8rem 1.5rem; border-radius: 30px;
     text-decoration: none; color: #1a1a2e; font-weight: 600;
@@ -214,7 +224,7 @@ body:not(.learn-more-body) {
     gap: 2.5rem; width: 100%;
 }
 
-/* Apparition en cascade des cartes */
+/* Cascading Card Appear Animation */
 .glass-card {
     padding: 2.5rem; border-radius: 30px;
     display: flex; flex-direction: column; gap: 1.5rem;
@@ -243,7 +253,7 @@ body:not(.learn-more-body) {
     border: 1px solid rgba(255, 255, 255, 1);
 }
 
-.highlight-card { border: 2px solid rgba(255, 255, 255, 1); background: rgba(255, 255, 255, 0.55); }
+.highlight-card { border: 2px solid rgba(255, 255, 255, 1); background: rgba(255, 255, 255, 0.6); }
 
 .card-header {
     display: flex; flex-direction: column; gap: 0.5rem;
